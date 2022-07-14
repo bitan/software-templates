@@ -27,8 +27,10 @@ spec:
           title: GH team
           type: string
           description: GH team
-          ui:field: EntityNamePicker
-          ui:autofocus: true
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
         db_reviewers:
           title: DB reviewers
           type: string
