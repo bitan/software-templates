@@ -15,38 +15,56 @@ spec:
           title: cluster_name
           type: string
           description: Cluster name
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         repo_name:
           title: repo_name
           type: string
           description: Repo name
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         github_team:
           title: GH team
           type: string
           description: GH team
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         db_reviewers:
           title: DB reviewers
           type: string
           description: DB reviewers
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         prod_enabled:
           title: Prod enabled
           type: string
           description: Prod enabled
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         stage_enabled:
           title: stage enabled
           type: string
           description: Stage enabled
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         spinnaker_webhook:
           title: Spinnaker webhook
           type: string
           description: Spinnaker webhook
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         jenkins_webhook:
           title: jenkins webhook
           type: string
           description: Jenkins webhook
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         project_description:
           title: Description
           type: string
           description: Description of the project
+          ui:field: EntityNamePicker
+          ui:autofocus: true
 
   steps:
     - id: fetch-base
