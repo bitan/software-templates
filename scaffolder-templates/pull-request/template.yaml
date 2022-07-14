@@ -70,7 +70,7 @@ spec:
       action: publish:github:pull-request
       input:
         allowedHosts: ['github.com']
-        repoUrl: "Glovo/terraform-github-repository"
+        repoUrl: github.com?repo=terraform-github-repository&owner=Glovo
         title: "Create new project: ${{parameters.repo_name}}"
         branchName: create-${{parameters.repo_name}}
         description: |
