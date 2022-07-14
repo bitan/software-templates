@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: pull-request
-  title: Pull Request Action template
+  title: GH Repo Creation template
   description: scaffolder v1beta3 template demo publishing to PR on existing git repository
 spec:
   owner: backstage/techdocs-core
@@ -13,60 +13,76 @@ spec:
       required:
         - name
       properties:
-        name:
-          title: Name
+        cluster_name:
+          title: cluster_name
           type: string
-          description: Unique name of the component
+          description: Cluster name
           ui:field: EntityNamePicker
           ui:autofocus: true
-        description:
+        repo_name:
+          title: repo_name
+          type: string
+          description: Repo name
+          ui:field: EntityNamePicker
+          ui:autofocus: true
+        github_team:
+          title: GH team
+          type: string
+          description: GH team
+          ui:field: EntityNamePicker
+          ui:autofocus: true
+        db_reviewers:
+          title: DB reviewers
+          type: string
+          description: DB reviewers
+          ui:field: EntityNamePicker
+          ui:autofocus: true
+        prod_enabled:
+          title: Prod enabled
+          type: string
+          description: Prod enabled
+          ui:field: EntityNamePicker
+          ui:autofocus: true
+        stage_enabled:
+          title: stage enabled
+          type: string
+          description: stage enabled
+          ui:field: EntityNamePicker
+          ui:autofocus: true
+        spinnaker_webhook:
+          title: Spinnaker webhook
+          type: string
+          description: Spinnaker webhook
+          ui:field: EntityNamePicker
+          ui:autofocus: true
+        jenkins_webhook:
+          title: jenkins webhook
+          type: string
+          description: Jenkins webhook
+          ui:field: EntityNamePicker
+          ui:autofocus: true
+        project_description:
           title: Description
           type: string
-          description: Description of the component
-        targetPath:
-          title: Target Path in repo
-          type: string
-          description: Name of the directory to create in the repository
-    - title: Choose a location
-      required:
-        - repoUrl
-      properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
+          description: Description of the project
 
   steps:
     - id: fetch-base
       name: Fetch Base
       action: fetch:template
+      cookiecutterCompat: true
       input:
-        url: ./template
-        values:
-          name: ${{parameters.name}}
-
-    - id: fetch-docs
-      name: Fetch Docs
-      action: fetch:plain
-      input:
-        targetPath: ./community
-        url: https://github.com/backstage/community/tree/main/backstage-community-sessions
+        url: ./prod
 
     - id: publish
       name: Publish
       action: publish:github:pull-request
       input:
-        repoUrl: ${{ parameters.repoUrl }}
-        title: "Create new project: ${{parameters.name}}"
-        branchName: create-${{parameters.name}}
+        repoUrl: https://github.com/Glovo/terraform-github-repository
+        title: "Create new project: ${{parameters.repo_name}}"
+        branchName: create-${{parameters.repo_name}}
         description: |
-          # New project: ${{parameters.name}}
-
-          ${{ parameters.description if parameters.description }}
-        targetPath: ${{ parameters.targetPath if parameters.targetPath else parameters.name }}
+          ${{ parameters.project_description if parameters.project_description }}
 
   output:
     links:
