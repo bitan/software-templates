@@ -10,8 +10,6 @@ spec:
 
   parameters:
     - title: Fill in some steps
-      required:
-        - name
       properties:
         cluster_name:
           title: cluster_name
