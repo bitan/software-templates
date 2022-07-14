@@ -1,14 +1,14 @@
-module "{{cookiecutter.repo_name}}" {
+module "{{values.repo_name}}" {
   source                  = "../../modules/github-repository"
-  name                    = "{{cookiecutter.repo_name}}"
-  description             = "{{cookiecutter.project_description}}"
+  name                    = "{{values.repo_name}}"
+  description             = "{{values.project_description}}"
   default_branch          = "main"
-  team                   = "{{cookiecutter.github_team}}" 
-  project                = "{{cookiecutter.repo_name}}"
+  team                   = "{{values.github_team}}" 
+  project                = "{{values.repo_name}}"
 
   team_collaborators = [
     {
-      team_id = data.github_team.{{cookiecutter.github_team}}.id,
+      team_id = data.github_team.{{values.github_team}}.id,
       permission = "admin"
     }
     ,
@@ -16,7 +16,7 @@ module "{{cookiecutter.repo_name}}" {
       team_id    = data.github_team.platform.id,
       permission = "push"
     }
-    {%- if cookiecutter.db_reviewers == "yes" -%}
+    {%- if values.db_reviewers == "yes" -%}
     ,
     {
       team_id = data.github_team.livedb-stakeholders.id,
@@ -32,11 +32,11 @@ module "{{cookiecutter.repo_name}}" {
       required_status_checks = {
         strict   = true
         contexts = [
-          {%- if cookiecutter.prod_enabled == "yes" %}
-          "Terraform Cloud/glovo/{{cookiecutter.service_name}}-prod",
+          {%- if values.prod_enabled == "yes" %}
+          "Terraform Cloud/glovo/{{values.service_name}}-prod",
           {%- endif -%}
-          {%- if cookiecutter.stage_enabled == "yes" %}
-          "Terraform Cloud/glovo/{{cookiecutter.repo_name}}-stage",
+          {%- if values.stage_enabled == "yes" %}
+          "Terraform Cloud/glovo/{{values.repo_name}}-stage",
           {%- endif %}
           "continuous-integration/jenkins/pr-merge"
         ]
@@ -48,11 +48,11 @@ module "{{cookiecutter.repo_name}}" {
       }
     }
   ]
-  {% if cookiecutter.jenkins_webhook == "yes" and cookiecutter.spinnaker_webhook == "yes" -%}
+  {% if values.jenkins_webhook == "yes" and values.spinnaker_webhook == "yes" -%}
   webhooks = [local.jenkins_webhook, local.spinnaker_webhook]
-  {%- elif cookiecutter.jenkins_webhook == "yes" and cookiecutter.spinnaker_webhook == "no" -%}
+  {%- elif values.jenkins_webhook == "yes" and values.spinnaker_webhook == "no" -%}
   webhooks = [local.jenkins_webhook]
-  {%- elif cookiecutter.jenkins_webhook == "no" and cookiecutter.spinnaker_webhook == "yes" -%}
+  {%- elif values.jenkins_webhook == "no" and values.spinnaker_webhook == "yes" -%}
   webhooks = [local.spinnaker_webhook]
   {% endif %}
 }

@@ -70,7 +70,6 @@ spec:
     - id: fetch-base
       name: Fetch Base
       action: fetch:template
-      cookiecutterCompat: true
       input:
         url: ./prod
       values:
