@@ -73,7 +73,16 @@ spec:
       cookiecutterCompat: true
       input:
         url: ./prod
-
+      values:
+          cluster_name: ${{parameters.cluster_name}}
+          repo_name: ${{parameters.repo_name}}
+          github_team: ${{parameters.github_team}}
+          db_reviewers: ${{parameters.db_reviewers}}
+          prod_enabled: ${{parameters.prod_enabled}}
+          stage_enabled: ${{parameters.stage_enabled}}
+          spinnaker_webhook: ${{parameters.spinnaker_webhook}}
+          jenkins_webhook: ${{parameters.jenkins_webhook}}
+          project_description: ${{parameters.project_description}}
     - id: publish
       name: Publish
       action: publish:github:pull-request
