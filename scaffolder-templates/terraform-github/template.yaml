@@ -16,41 +16,23 @@ spec:
           type: string
           enum:
             - cap
-            - courier         
-            - data            
-            - fintech         
-            - growth          
-            - it-security     
+            - courier        
+            - data
+            - fintech
+            - growth
+            - it-security
             - mlp
             - paf
-            - sectech         
+            - sectech
             - web
-            - contact         
-            - customer        
-            - finance         
-            - food-innovation gx
-            - logistics       
-            - mobile          
-            - platform   
-          enumNames:
-            - cap
-            - courier         
-            - data            
-            - fintech         
-            - growth          
-            - it-security     
-            - mlp
-            - paf
-            - sectech         
-            - web
-            - contact         
-            - customer        
-            - finance         
-            - food-innovation gx
-            - logistics       
-            - mobile          
-            - platform 
-          ui:autofocus: true
+            - contact
+            - customer
+            - finance
+            - food-innovation 
+            - gx
+            - logistics
+            - mobile
+            - platform
         repo_name:
           title: Service Repository Name
           type: string
