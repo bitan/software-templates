@@ -85,7 +85,7 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: ./terraform-github
+        url: ./skeleton
         cookiecutterCompat: true
         values:
           cluster_name: ${{parameters.cluster_name}}
