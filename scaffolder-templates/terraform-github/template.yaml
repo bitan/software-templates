@@ -79,14 +79,13 @@ spec:
           title: Description
           type: string
           description: Description of the project
-          ui:field: EntityNamePicker
 
   steps:
     - id: fetch-base
       name: Fetch Base
       action: fetch:template
       input:
-        url: ./prod
+        url: ./terraform-github
         cookiecutterCompat: true
         values:
           cluster_name: ${{parameters.cluster_name}}
