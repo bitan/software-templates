@@ -14,13 +14,13 @@ spec:
         cluster_name:
           title: cluster_name
           type: string
-          description: Cluster name
-          ui:field: EntityNamePicker
+          enum:
+            - platform
+            - cap
           ui:autofocus: true
         repo_name:
-          title: repo_name
+          title: Service Repository Name
           type: string
-          description: Repo name
           ui:field: EntityNamePicker
           ui:autofocus: true
         github_team:
@@ -32,33 +32,25 @@ spec:
             allowedKinds:
               - Group
         db_reviewers:
-          title: DB reviewers
-          type: string
-          description: DB reviewers
-          ui:field: EntityNamePicker
-          ui:autofocus: true
+          title: DB Reviewers
+          type: boolean
+          ui:widget: radio
         prod_enabled:
-          title: Prod enabled
-          type: string
-          description: Prod enabled
-          ui:field: EntityNamePicker
-          ui:autofocus: true
+          title: Prod Enabled
+          type: boolean
+          ui:widget: radio
         stage_enabled:
           title: stage enabled
-          type: string
-          description: Stage enabled
-          ui:field: EntityNamePicker
-          ui:autofocus: true
+          type: boolean
+          description: Stage Enabled
+          ui:widget: radio
         spinnaker_webhook:
-          title: Spinnaker webhook
-          type: string
-          description: Spinnaker webhook
-          ui:field: EntityNamePicker
-          ui:autofocus: true
+          title: Spinnaker Webhook
+          type: boolean
+          ui:widget: radio
         jenkins_webhook:
           title: Jenkins Webhook
           type: boolean
-          description: Jenkins webhook
           ui:widget: radio
         project_description:
           title: Description
