@@ -35,22 +35,32 @@ spec:
           title: DB reviewers
           type: string
           description: DB reviewers
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         prod_enabled:
           title: Prod enabled
           type: string
           description: Prod enabled
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         stage_enabled:
           title: stage enabled
           type: string
           description: Stage enabled
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         spinnaker_webhook:
           title: Spinnaker webhook
           type: string
           description: Spinnaker webhook
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         jenkins_webhook:
           title: jenkins webhook
           type: string
           description: Jenkins webhook
+          ui:field: EntityNamePicker
+          ui:autofocus: true
         project_description:
           title: Description
           type: string
@@ -64,6 +74,7 @@ spec:
       action: fetch:template
       input:
         url: ./prod
+      cookiecutterCompat: true
       values:
           cluster_name: ${{parameters.cluster_name}}
           repo_name: ${{parameters.repo_name}}
