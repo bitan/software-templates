@@ -1,15 +1,15 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: pull-request
-  title: GH Repo Creation template
+  name: Terraform GitHub Repository
+  title: GH Repo Creation Template
   description: scaffolder v1beta3 template demo publishing to PR on existing git repository
 spec:
-  owner: backstage/techdocs-core
+  owner: platform
   type: service
 
   parameters:
-    - title: Fill in some steps
+    - title: Fill in the service details
       properties:
         cluster_name:
           title: cluster_name
@@ -56,11 +56,10 @@ spec:
           ui:field: EntityNamePicker
           ui:autofocus: true
         jenkins_webhook:
-          title: jenkins webhook
-          type: string
+          title: Jenkins Webhook
+          type: boolean
           description: Jenkins webhook
-          ui:field: EntityNamePicker
-          ui:autofocus: true
+          ui:widget: radio
         project_description:
           title: Description
           type: string
@@ -95,6 +94,7 @@ spec:
         branchName: create-${{parameters.repo_name}}
         description: |
           ${{ parameters.project_description if parameters.project_description }}
+        targetPath: ./prod
 
   output:
     links:
