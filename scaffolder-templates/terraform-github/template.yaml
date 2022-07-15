@@ -10,9 +10,19 @@ spec:
 
   parameters:
     - title: Fill in the service details
+      required:
+        - cluster_name
+        - repo_name
+        - github_team
+        - db_reviewers
+        - prod_enabled
+        - stage_enabled
+        - spinnaker_webhook
+        - jenkins_webhook
+        - project_description
       properties:
         cluster_name:
-          title: cluster_name
+          title: Cluster Name
           type: string
           enum:
             - cap
@@ -37,7 +47,6 @@ spec:
           title: Service Repository Name
           type: string
           ui:field: EntityNamePicker
-          ui:autofocus: true
         github_team:
           title: GH team
           type: string

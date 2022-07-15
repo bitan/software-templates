@@ -16,7 +16,7 @@ module "{{cookiecutter.repo_name}}" {
       team_id    = data.github_team.platform.id,
       permission = "push"
     }
-    {%- if cookiecutter.db_reviewers == "yes" -%}
+    {%- if cookiecutter.db_reviewers -%}
     ,
     {
       team_id = data.github_team.livedb-stakeholders.id,
@@ -32,13 +32,13 @@ module "{{cookiecutter.repo_name}}" {
       required_status_checks = {
         strict   = true
         contexts = [
-          {%- if cookiecutter.prod_enabled == "yes" %}
+          {%- if cookiecutter.prod_enabled %}
           "Terraform Cloud/glovo/{{cookiecutter.repo_name}}-prod",
           {%- endif -%}
-          {%- if cookiecutter.pre_prod_enabled == "yes" %}
+          {%- if cookiecutter.pre_prod_enabled %}
           "Terraform Cloud/glovo/{{cookiecutter.repo_name}}-preprod",
           {%- endif -%}
-          {%- if cookiecutter.stage_enabled == "yes" %}
+          {%- if cookiecutter.stage_enabled %}
           "Terraform Cloud/glovo/{{cookiecutter.repo_name}}-stage",
           {%- endif %}
           "continuous-integration/jenkins/pr-merge"
@@ -51,11 +51,11 @@ module "{{cookiecutter.repo_name}}" {
       }
     }
   ]
-  {% if cookiecutter.jenkins_webhook == "yes" and cookiecutter.spinnaker_webhook == "yes" -%}
+  {% if cookiecutter.jenkins_webhook and cookiecutter.spinnaker_webhook -%}
   webhooks = [local.jenkins_webhook, local.spinnaker_webhook]
-  {%- elif cookiecutter.jenkins_webhook == "yes" and cookiecutter.spinnaker_webhook == "no" -%}
+  {%- elif cookiecutter.jenkins_webhook and cookiecutter.spinnaker_webhook == false -%}
   webhooks = [local.jenkins_webhook]
-  {%- elif cookiecutter.jenkins_webhook == "no" and cookiecutter.spinnaker_webhook == "yes" -%}
+  {%- elif cookiecutter.jenkins_webhook == false and cookiecutter.spinnaker_webhook -%}
   webhooks = [local.spinnaker_webhook]
   {% endif %}
 }
