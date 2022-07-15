@@ -15,8 +15,41 @@ spec:
           title: cluster_name
           type: string
           enum:
-            - platform
             - cap
+            - courier         
+            - data            
+            - fintech         
+            - growth          
+            - it-security     
+            - mlp
+            - paf
+            - sectech         
+            - web
+            - contact         
+            - customer        
+            - finance         
+            - food-innovation gx
+            - logistics       
+            - mobile          
+            - platform   
+          enumNames:
+            - cap
+            - courier         
+            - data            
+            - fintech         
+            - growth          
+            - it-security     
+            - mlp
+            - paf
+            - sectech         
+            - web
+            - contact         
+            - customer        
+            - finance         
+            - food-innovation gx
+            - logistics       
+            - mobile          
+            - platform 
           ui:autofocus: true
         repo_name:
           title: Service Repository Name
@@ -31,27 +64,32 @@ spec:
           ui:options:
             allowedKinds:
               - Group
+          ui:autofocus: true
         db_reviewers:
           title: DB Reviewers
           type: boolean
           ui:widget: radio
+          ui:autofocus: true
         prod_enabled:
           title: Prod Enabled
           type: boolean
           ui:widget: radio
+          ui:autofocus: true
         stage_enabled:
-          title: stage enabled
+          title: Stage Enabled
           type: boolean
-          description: Stage Enabled
           ui:widget: radio
+          ui:autofocus: true
         spinnaker_webhook:
           title: Spinnaker Webhook
           type: boolean
           ui:widget: radio
+          ui:autofocus: true
         jenkins_webhook:
           title: Jenkins Webhook
           type: boolean
           ui:widget: radio
+          ui:autofocus: true
         project_description:
           title: Description
           type: string
