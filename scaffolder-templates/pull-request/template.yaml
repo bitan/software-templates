@@ -35,27 +35,22 @@ spec:
           title: DB reviewers
           type: string
           description: DB reviewers
-          ui:widget: radio
         prod_enabled:
           title: Prod enabled
           type: string
           description: Prod enabled
-          ui:widget: radio
         stage_enabled:
           title: stage enabled
           type: string
           description: Stage enabled
-          ui:widget: radio
         spinnaker_webhook:
           title: Spinnaker webhook
           type: string
           description: Spinnaker webhook
-          ui:widget: radio
         jenkins_webhook:
           title: jenkins webhook
           type: string
           description: Jenkins webhook
-          ui:widget: radio
         project_description:
           title: Description
           type: string
