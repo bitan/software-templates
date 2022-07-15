@@ -46,38 +46,31 @@ spec:
           ui:options:
             allowedKinds:
               - Group
-          ui:autofocus: true
         db_reviewers:
           title: DB Reviewers
           type: boolean
           ui:widget: radio
-          ui:autofocus: true
         prod_enabled:
           title: Prod Enabled
           type: boolean
           ui:widget: radio
-          ui:autofocus: true
         stage_enabled:
           title: Stage Enabled
           type: boolean
           ui:widget: radio
-          ui:autofocus: true
         spinnaker_webhook:
           title: Spinnaker Webhook
           type: boolean
           ui:widget: radio
-          ui:autofocus: true
         jenkins_webhook:
           title: Jenkins Webhook
           type: boolean
           ui:widget: radio
-          ui:autofocus: true
         project_description:
           title: Description
           type: string
           description: Description of the project
           ui:field: EntityNamePicker
-          ui:autofocus: true
 
   steps:
     - id: fetch-base
