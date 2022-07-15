@@ -107,7 +107,7 @@ spec:
         branchName: create-${{parameters.repo_name}}
         description: |
           ${{ parameters.project_description if parameters.project_description }}
-        targetPath: ./prod
+        targetPath: prod
 
   output:
     links:
