@@ -1,7 +1,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: Terraform GitHub Repository
+  name: terraform-github-repository
   title: GH Repo Creation Template
   description: scaffolder v1beta3 template demo publishing to PR on existing git repository
 spec:
