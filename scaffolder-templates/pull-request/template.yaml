@@ -74,8 +74,8 @@ spec:
       action: fetch:template
       input:
         url: ./prod
-      cookiecutterCompat: true
-      values:
+        cookiecutterCompat: true
+        values:
           cluster_name: ${{parameters.cluster_name}}
           repo_name: ${{parameters.repo_name}}
           github_team: ${{parameters.github_team}}
